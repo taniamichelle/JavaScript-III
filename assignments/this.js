@@ -70,14 +70,14 @@ console.log(anything.cook();) --> prints same thing as hobbit.cook();
 
 // Principle 3
 // code example for New Binding
-// function Person(attributes) {
-//     'use strict';
-//     this.name = attributes.name;
-//     this.age = attributes.age;
-//     this.speak = function () {
-//         return `Hi, my name is ${this.name}`;
-//     };
-// };
+function Person(attributes) {
+    'use strict';
+    this.name = attributes.name;
+    this.age = attributes.age;
+    this.speak = function () {
+        return `Hi, my name is ${this.name}`;
+    };
+};
 
 const Mark = new Person({
     name: 'Mark',

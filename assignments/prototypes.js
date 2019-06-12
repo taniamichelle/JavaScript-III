@@ -70,12 +70,14 @@ CharacterStats.prototype.takeDamage = function () {
 
 //GrandChild constructor function
 function Humanoid(details) {
+  //Gain access to all properties of Parent
+  CharacterStats.call(this, details);
   this.team = details.team;
   this.weapons = details.weapons;
   this.language = details.language;
 };
 
-//Gain access to GrandParent and Parent prototype methods
+//Gain access to Parent prototype methods
 Humanoid.prototype = Object.create(CharacterStats.prototype);
 
 //GrandChild Prototype Method
@@ -85,13 +87,13 @@ Humanoid.prototype.greet = function () {
 
 const mage = new Humanoid({
   createdAt: new Date(),
+  name: 'Bruce',
   dimensions: {
     length: 2,
     width: 1,
     height: 1,
   },
   healthPoints: 5,
-  name: 'Bruce',
   team: 'Mage Guild',
   weapons: [
     'Staff of Shamalama',
@@ -101,13 +103,13 @@ const mage = new Humanoid({
 
 const swordsman = new Humanoid({
   createdAt: new Date(),
+  name: 'Sir Mustachio',
   dimensions: {
     length: 2,
     width: 2,
     height: 2,
   },
   healthPoints: 15,
-  name: 'Sir Mustachio',
   team: 'The Round Table',
   weapons: [
     'Giant Sword',
@@ -118,13 +120,13 @@ const swordsman = new Humanoid({
 
 const archer = new Humanoid({
   createdAt: new Date(),
+  name: 'Lilith',
   dimensions: {
     length: 1,
     width: 2,
     height: 4,
   },
   healthPoints: 10,
-  name: 'Lilith',
   team: 'Forest Kingdom',
   weapons: [
     'Bow',
